@@ -14,4 +14,8 @@ public class Leaf extends Node {
     void Accept(TreeVisitor treeVisitor) {
         treeVisitor.visitTree(this);
     }
+
+    public int getValue(){
+        return this.value;
+    }
 }

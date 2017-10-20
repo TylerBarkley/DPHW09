@@ -10,8 +10,7 @@ public class InfixVisitor implements TreeVisitor {
     public void visitTree(OperatorNode operatorNode) {
         this.stringBuilder.append("(");
         for(int i = 0; i < operatorNode.getChildren().size(); i++){
-            System.out.print(this.stringBuilder.toString());
-            resetStringBuilder();
+            this.stringBuilder.toString();
             operatorNode.getChildren().get(i).Accept(this);
             if(i != operatorNode.getChildren().size() - 1){
                 this.stringBuilder.append(" ");
@@ -20,8 +19,6 @@ public class InfixVisitor implements TreeVisitor {
             }
         }
         this.stringBuilder.append(")");
-        System.out.print(this.stringBuilder.toString());
-        resetStringBuilder();
     }
 
     @Override
@@ -31,5 +28,11 @@ public class InfixVisitor implements TreeVisitor {
 
     private void resetStringBuilder(){
         this.stringBuilder = new StringBuilder();
+    }
+
+    public String toString(){
+        this.stringBuilder.deleteCharAt(0);
+        this.stringBuilder.deleteCharAt(this.stringBuilder.length()-1);
+        return this.stringBuilder.toString();
     }
 }

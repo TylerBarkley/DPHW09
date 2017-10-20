@@ -30,4 +30,12 @@ public class OperatorNode extends Node {
     void Accept(TreeVisitor treeVisitor) {
         treeVisitor.visitTree(this);
     }
+
+    public Operator getOperator() {
+        return this.operator;
+    }
+
+    public double evaluate(double x, double y){
+        return this.operator.evaluate(x,y);
+    }
 }
